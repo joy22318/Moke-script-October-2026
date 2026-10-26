@@ -1,0 +1,68 @@
+// ===== SETUP =====
+fanOut(1)
+saveImg(0)
+setCoil(1,0)
+setCoil(2,0)
+wait(1)
+
+
+    // (1) reset state: saturate OOP with coil 2
+    setCoil(1,0)
+	wait(5)
+    setCoil(2,-5000)
+    wait(2)
+
+    // (2) reference in saturated state
+    ref
+    wait(1)
+
+    // (3) release coil 2
+    setCoil(2,0)
+    wait(1)
+    cmp
+    wait(1)
+
+    // (4) nucleate bubble: two pulses on coil 2
+    pulseCoil(2,3200)
+    cmp
+    wait(1)
+    
+
+    // (5) NEW reference = bubble before expansion
+    ref
+    wait(1)
+
+    // (6) apply in-plane Hy
+    setCoil(1,500)
+    wait(2)
+    cmp
+    wait(1)
+
+    // (7) expand under Hy
+    pulseCoil(2,2800)
+    cmp
+    wait(1)
+	saveImg(1)
+    pulseCoil(2,2800)
+    cmp
+    wait(1)
+	saveImg(1)
+	pulseCoil(2,2800)
+    cmp
+    wait(1)
+	saveImg(1)
+    pulseCoil(2,2800)
+    cmp
+    wait(1)
+    saveImg(1)
+    cmp
+    saveImg(0)
+    wait(1)
+
+
+
+// ===== SHUTDOWN =====
+setCoil(1,0)
+setCoil(2,0)
+wait(1)
+fanOut(0)

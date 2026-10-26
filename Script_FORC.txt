@@ -1,0 +1,17 @@
+// ===== SETUP =====								
+fanOut(1)							
+setCoil(1,500)						
+wait(1)								
+ref								
+								
+// ===== SWITCHING PART (Hr step 100 mA	 data step 50 mA) =====							
+for i = -140:-0.5:-200								
+  setCoil(1,500)							
+  wait(1) 									
+  setCoil(1,i)						
+  wait(2)							
+  for j = i:5:500							    
+  setCoil(1,j)						
+  cmp							
+  end								
+end								

@@ -1,0 +1,56 @@
+
+
+// (2) -5000 mA on coil 2
+setCoil(2,-5000)
+wait(1)
+
+// (3) reference
+ref
+wait(1)
+
+// (4) coil 2 to zero
+setCoil(2,0)
+wait(1)
+
+// (5) compare
+cmp
+wait(1)
+
+// (6) two 3500 mA pulses on coil 2
+pulseCoil(2,3000)
+cmp
+wait(1)
+pulseCoil(2,3000)
+cmp
+wait(1)
+
+// (8) new reference
+ref
+wait(1)
+
+// (9) 300 mA on coil 1
+setCoil(1,300)
+wait(1)
+
+// (10) compare
+cmp
+wait(1)
+
+// (11) four 3000 mA pulses on coil 2
+pulseCoil(2,3000)
+cmp
+wait(1)
+pulseCoil(2,3000)
+cmp
+wait(1)
+
+
+
+
+// (12) save one image
+saveImg(1)
+cmp
+saveImg(0)
+setCoil(1,0)
+setCoil(2,0)
+
